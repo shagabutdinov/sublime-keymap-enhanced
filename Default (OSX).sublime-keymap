@@ -1,0 +1,712 @@
+[
+
+  // dash to underscore remap
+
+  {
+    "keys": ["-"],
+    "command": "insert",
+    "args": {
+      "characters": "_"
+    }
+  },
+
+  {
+    "keys": ["_"],
+    "command": "insert",
+    "args": {
+      "characters": "-"
+    }
+  },
+
+  // "." to "->" remap
+
+  {
+    "keys": ["."],
+    "command": "insert",
+    "args": {
+      "characters": "->"
+    },
+    "context": [
+      {"key": "scope_b_left", "operator": "regex_contains", "operand": "source\\.php(?!.*(string|comment))", "match_all": true},
+      {"key": "selection_empty", "operator": "equal", "operand": true, "match_all": true},
+      {"key": "preceding_text_b", "operator": "regex_contains", "operand": "(\\w|]|\\))$", "match_all": true},
+    ],
+  },
+
+  // navigation
+
+  {
+    "keys": ["alt+j"],
+    "command": "move",
+    "args": {
+      "by": "characters",
+      "forward": false
+    }
+  },
+
+  {
+    "keys": ["alt+l"],
+    "command": "move",
+    "args": {
+      "by": "characters",
+      "forward": true
+    }
+  },
+
+  {
+    "keys": ["alt+i"],
+    "command": "move",
+    "args": {
+      "by": "lines",
+      "forward": false
+    }
+  },
+
+  {
+    "keys": ["alt+k"],
+    "command": "move",
+    "args": {
+      "by": "lines",
+      "forward": true
+    }
+  },
+
+  {
+    "keys": ["alt+shift+j"],
+    "command": "move",
+    "args": {
+      "by": "characters",
+      "forward": false,
+      "extend": true
+    }
+  },
+
+  {
+    "keys": ["alt+shift+l"],
+    "command": "move",
+    "args": {
+      "by": "characters",
+      "forward": true,
+      "extend": true
+    }
+  },
+
+  {
+    "keys": ["alt+shift+i"],
+    "command": "move",
+    "args": {
+      "by": "lines",
+      "forward": false,
+      "extend": true
+    },
+    "context": [
+      {"key": "overlay_visible", "operator": "equal", "operand": false}
+    ],
+  },
+
+  {
+    "keys": ["alt+shift+k"],
+    "command": "move",
+    "args": {
+      "by": "lines",
+      "forward": true,
+      "extend": true
+    }
+  },
+
+  {
+    "keys": ["ctrl+j"],
+    "command": "move",
+    "args": {
+      "by": "subwords",
+      "forward": false
+    }
+  },
+
+  {
+    "keys": ["ctrl+l"],
+    "command": "move",
+    "args": {
+      "by": "subword_ends",
+      "forward": true
+    }
+  },
+
+  {
+    "keys": ["ctrl+shift+j"],
+    "command": "move",
+    "args": {
+      "by": "subwords",
+      "forward": false,
+      "extend": true
+    }
+  },
+
+  {
+    "keys": ["ctrl+shift+l"],
+    "command": "move",
+    "args": {
+      "by": "subword_ends",
+      "forward": true,
+      "extend": true
+    }
+  },
+
+  {
+    "keys": ["alt+;"],
+    "command": "move_to",
+    "args": {
+      "to": "bol",
+      "extend": false
+    }
+  },
+
+  {
+    "keys": ["alt+'"],
+    "command": "move_to",
+    "args": {
+      "to": "eol",
+      "extend": false
+    }
+  },
+
+  {
+    "keys": ["alt+shift+;"],
+    "command": "move_to",
+    "args": {
+      "to": "bol",
+      "extend": true
+    }
+  },
+
+  {
+    "keys": ["alt+shift+'"],
+    "command": "move_to",
+    "args": {
+      "to": "eol",
+      "extend": true
+    }
+  },
+
+  {
+    "keys": ["alt+ctrl+;"],
+    "command": "move_to",
+    "args": {
+      "to": "bof",
+      "extend": false
+    }
+  },
+
+  {
+    "keys": ["alt+ctrl+'"],
+    "command": "move_to",
+    "args": {
+      "to": "eof",
+      "extend": false
+    }
+  },
+
+  {
+    "keys": ["alt+ctrl+shift+;"],
+    "command": "move_to",
+    "args": {
+      "to": "bof",
+      "extend": true
+    }
+  },
+
+  {
+    "keys": ["alt+ctrl+shift+'"],
+    "command": "move_to",
+    "args": {
+      "to": "eof",
+      "extend": true
+    }
+  },
+
+  {
+    "keys": ["alt+shift+/"],
+    "command": "run_macro_file",
+    "args": {
+      "file": "res://Packages/Default/Delete Line.sublime-macro"
+    }
+  },
+
+  {
+    "keys": ["ctrl+shift+/"],
+    "command": "run_macro_file",
+    "args": {
+      "file": "res://Packages/Default/Delete to Hard EOL.sublime-macro"
+    }
+  },
+
+  {
+    "keys": ["ctrl+shift+backspace"],
+    "command": "run_macro_file",
+    "args": {
+      "file": "res://Packages/Default/Delete to BOL.sublime-macro"
+    }
+  },
+
+  {
+    "keys": ["ctrl+enter"],
+    "command": "run_macro_file",
+    "args": {
+      "file": "res://Packages/Default/Add Line.sublime-macro"
+    }
+  },
+
+  {
+    "keys": ["shift+enter"],
+    "command": "run_macro_file",
+    "args": {
+      "file": "res://Packages/Default/Add Line Before.sublime-macro"
+    },
+  },
+
+  // other bindings
+
+  {
+    "keys": ["ctrl+space"],
+    "command": "auto_complete"
+  },
+
+  {
+    "keys": ["ctrl+space"],
+    "command": "replace_completion_with_auto_complete",
+    "context": [
+      {"key": "last_command", "operator": "equal", "operand": "insert_best_completion"},
+      {"key": "auto_complete_visible", "operator": "equal", "operand": false},
+      {"key": "setting.tab_completion", "operator": "equal", "operand": true}
+    ]
+  },
+
+  {
+    "keys": ["alt+\\"],
+    "command": "show_overlay",
+    "args": {
+      "overlay": "command_palette"
+    }
+  },
+
+  {
+    "keys": ["alt+t"],
+    "command": "expand_selection",
+    "args": {
+      "to": "tag"
+    }
+  },
+
+  // view navigation
+
+  {
+    "keys": ["ctrl+tab"],
+    "command": "next_view"
+  },
+
+  // Should be in User/Default ().sublime-keymap to avoid conflicts with
+  // terminal plugin
+  {
+    "keys": ["ctrl+shift+tab"],
+    "command": "prev_view"
+  },
+
+  {
+    "keys": ["ctrl+."],
+    "command": "next_view"
+  },
+
+  {
+    "keys": ["ctrl+,"],
+    "command": "prev_view"
+  },
+
+  {
+    "keys": ["ctrl+v"],
+    "command": "paste_and_indent",
+    "context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true, "match_all": true}
+    ]
+  },
+
+  {
+    "keys": ["ctrl+v"],
+    "command": "run_macro_file",
+    "args": {
+      "file": "res://Packages/KeymapEnhanced/macro/paste_and_indent.sublime-macro"
+    },
+    "context": [
+      {"key": "selection_empty", "operator": "equal", "operand": false, "match_all": true}
+    ]
+  },
+
+  {
+    "keys": ["ctrl+v"],
+    "command": "paste_and_indent"
+  },
+
+  {
+    "keys": ["ctrl+shift+v"],
+    "command": "paste"
+  },
+
+  {
+    "keys": ["ctrl+alt+shift+v"],
+    "command": "paste_from_history"
+  },
+
+  {
+    "keys": ["ctrl+r"],
+    "command": "redo",
+    "context": [
+      {"key": "overlay_visible", "operator": "equal", "operand": false}
+    ],
+  },
+
+  {
+    "keys": ["alt+ctrl+shift+i"],
+    "command": "swap_line_up"
+  },
+
+  {
+    "keys": ["alt+ctrl+shift+k"],
+    "command": "swap_line_down"
+  },
+
+  {
+    "keys": ["f2"],
+    "command": "show_overlay",
+    "args": {
+      "overlay": "goto",
+      "text": "@"
+    }
+  },
+
+  {
+    "keys": ["ctrl+shift+t"],
+    "command": "reopen_last_file"
+  },
+
+  {
+    "keys": ["ctrl+q"],
+    "command": "toggle_comment",
+    "args": {
+      "block": false
+    }
+  },
+
+  {
+    "keys": ["ctrl+shift+q"],
+    "command": "toggle_comment",
+    "args": {
+      "block": true
+    }
+  },
+
+  {
+    "keys": ["ctrl+w"],
+    "command": "split_selection_into_lines",
+    "context": [
+      {"key": "selection_empty", "operator": "equal", "operand": false, "match_all": true}
+    ],
+  },
+
+  {
+    "keys": ["ctrl+e"],
+    "command": "goto_css_declaration",
+    "args": {
+      "goto": "next"
+    },
+    "context": [
+      {"key": "scope_b_right", "operator": "regex_contains", "operand": "(text\\.html|text\\.css)(?!.*source)"}
+    ],
+  },
+
+  {
+    "keys": ["ctrl+1"],
+    "command": "select_by_index",
+    "args": {
+      "index": 0
+    }
+  },
+
+  {
+    "keys": ["ctrl+2"],
+    "command": "select_by_index",
+    "args": {
+      "index": 1
+    }
+  },
+
+  {
+    "keys": ["ctrl+3"],
+    "command": "select_by_index",
+    "args": {
+      "index": 2
+    }
+  },
+
+  {
+    "keys": ["ctrl+4"],
+    "command": "select_by_index",
+    "args": {
+      "index": 3
+    }
+  },
+
+  {
+    "keys": ["ctrl+5"],
+    "command": "select_by_index",
+    "args": {
+      "index": 4
+    }
+  },
+
+  {
+    "keys": ["ctrl+alt+shift+z"],
+    "command": "soft_undo"
+  },
+
+  {
+    "keys": ["ctrl+alt+shift+r"],
+    "command": "soft_redo"
+  },
+
+  // utilities
+
+  // toggle ui elements
+
+  {
+    "keys": ["ctrl+u", "ctrl+m"],
+    "command": "toggle_menu"
+  },
+
+  {
+    "keys": ["ctrl+u", "ctrl+b"],
+    "command": "toggle_tabs"
+  },
+
+  {
+    "keys": ["ctrl+u", "ctrl+a"],
+    "command": "toggle_side_bar"
+  },
+
+  {
+    "keys": ["ctrl+u", "ctrl+x"],
+    "command": "toggle_status_bar"
+  },
+
+  // font size
+
+  {
+    "keys": ["ctrl+u", "ctrl+["],
+    "command": "decrease_font_size"
+  },
+
+  {
+    "keys": ["ctrl+u", "ctrl+]"],
+    "command": "increase_font_size"
+  },
+
+  // convrt case
+
+  {
+    "keys": ["ctrl+u", "="],
+    "command": "upper_case"
+  },
+
+  {
+    "keys": ["ctrl+u", "-"],
+    "command": "lower_case"
+  },
+
+  // close tag
+
+  {
+    "keys": ["ctrl+u", "ctrl+."],
+    "command": "close_tag"
+  },
+
+  // permute lines
+
+  {
+    "keys": ["ctrl+u", "q"],
+    "command": "permute_lines",
+    "args": {
+      "operation": "unique"
+    }
+  },
+
+  {
+    "keys": ["ctrl+u", "tab"],
+    "command": "sort_lines",
+  },
+
+  // open frenquently asked files
+
+  {
+    "keys": ["ctrl+u", "p"],
+    "command": "open_file",
+    "args": {
+      "file": "${project}"
+    }
+  },
+
+  {
+    "keys": ["ctrl+u", "u"],
+    "command": "open_file",
+    "args": {
+      "file": "${packages}/User/Default (Linux).sublime-keymap"
+    }
+  },
+
+  {
+    "keys": ["ctrl+u", "y"],
+    "command": "open_file",
+    "args": {
+      "file": "${packages}/User/Preferences.sublime-settings"
+    }
+  },
+
+  // find/replace panels
+
+  {
+    "keys": ["ctrl+u", "ctrl+f"],
+    "command": "show_panel",
+    "args": {
+      "panel": "find_in_files"
+    }
+  },
+
+  {
+    "keys": ["ctrl+u", "f"],
+    "command": "show_panel",
+    "args": {
+      "panel": "find",
+      "reverse": false
+    }
+  },
+
+  {
+    "keys": ["ctrl+u", "ctrl+h"],
+    "command": "show_panel",
+    "args": {
+      "panel": "replace",
+      "reverse": false
+    }
+  },
+
+  // toggle stuff in panels
+
+  {
+    "keys": ["alt+q"],
+    "command": "toggle_regex",
+    "context": [
+      {"key": "setting.is_widget", "operator": "equal", "operand": true}
+    ]
+  },
+
+  {
+    "keys": ["alt+w"],
+    "command": "toggle_case_sensitive",
+    "context":[
+      {"key": "setting.is_widget", "operator": "equal", "operand": true}
+    ]
+  },
+
+  {
+    "keys": ["alt+e"],
+    "command": "toggle_whole_word",
+    "context": [
+      {"key": "setting.is_widget", "operator": "equal", "operand": true}
+    ]
+  },
+
+  // files/folders utilities
+
+  {
+    "keys": ["ctrl+shift+n"],
+    "command": "new_file"
+  },
+
+  {
+    "keys": ["ctrl+u", "ctrl+n"],
+    "command": "new_window"
+  },
+
+  {
+    "keys": ["ctrl+u", "\\"],
+    "command": "prompt_open_folder"
+  },
+
+  {
+    "keys": ["ctrl+u", "o"],
+    "command": "prompt_open_file"
+  },
+
+  {
+    "keys": ["ctrl+u", "ctrl+p"],
+    "command": "prompt_select_workspace"
+  },
+
+  {
+    "keys": ["ctrl+u", "a"],
+    "command": "save_project_and_workspace_as"
+  },
+
+  {
+    "keys": ["ctrl+u", "ctrl+s"],
+    "command": "save"
+  },
+
+  {
+    "keys": ["ctrl+u", "s"],
+    "command": "prompt_save_as"
+  },
+
+  {
+    "keys": ["ctrl+m", "ctrl+w"],
+    "command": "wrap_lines"
+  },
+
+  // close file
+
+  {
+    "keys": ["ctrl+u", "ctrl+l"],
+    "command": "close"
+  },
+
+  {
+    "keys": ["ctrl+u", ";"],
+    "command": "close_all"
+  },
+
+  // lines in braces
+
+  {
+    "keys": ["enter"],
+    "command": "run_macro_file",
+    "args": {
+      "file": "Packages/KeymapEnhanced/macro/add_line_in_braces_enhanced.sublime-macro"
+    },
+    "context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true, "match_all": true},
+      {"key": "preceding_text", "operator": "regex_contains", "operand": "\\[$", "match_all": true},
+      {"key": "following_text", "operator": "regex_contains", "operand": "^\\]", "match_all": true}
+    ]
+  },
+
+  {
+    "keys": ["enter"],
+    "command": "run_macro_file",
+    "args": {
+      "file": "Packages/KeymapEnhanced/macro/add_line_in_braces_enhanced_without_tab.sublime-macro"
+    },
+    "context": [
+      {"key": "selection_empty", "operator": "equal", "operand": true, "match_all": true},
+      {"key": "preceding_text", "operator": "regex_contains", "operand": "\\{$", "match_all": true},
+      {"key": "following_text", "operator": "regex_contains", "operand": "^\\}", "match_all": true}
+    ],
+  },
+
+]

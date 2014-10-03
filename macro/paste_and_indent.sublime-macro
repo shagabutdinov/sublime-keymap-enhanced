@@ -1,0 +1,8 @@
+[
+  {
+    "command": "left_delete"
+  },
+  {
+    "command": "paste_and_indent"
+  }
+]
