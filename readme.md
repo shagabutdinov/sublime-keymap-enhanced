@@ -57,6 +57,7 @@ strin|g
 # after delete to "g"
 |g
 ```
+
 ### Commands
 
 | Description                           | Keyboard shortcut    |
@@ -145,3 +146,8 @@ strin|g
 | Close file                            | ctrl+u, ctrl+l       |
 | Close all                             | ctrl+u, ;            |
 | Add line into brackets                | enter                |
+
+
+### Dependencies
+
+None
