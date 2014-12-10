@@ -2,27 +2,27 @@
 
   // dash to underscore remap
 
-  {
-    "keys": ["-"],
-    "command": "insert",
-    "args": {
-      "characters": "_"
-    },
-    "context": [
-      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-    ]
-  },
+  // {
+  //   "keys": ["-"],
+  //   "command": "insert",
+  //   "args": {
+  //     "characters": "_"
+  //   },
+  //   "context": [
+  //     {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
+  //   ]
+  // },
 
-  {
-    "keys": ["_"],
-    "command": "insert",
-    "args": {
-      "characters": "-"
-    },
-    "context": [
-      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-    ]
-  },
+  // {
+  //   "keys": ["_"],
+  //   "command": "insert",
+  //   "args": {
+  //     "characters": "-"
+  //   },
+  //   "context": [
+  //     {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
+  //   ]
+  // },
 
   // "." to "->" remap
 
