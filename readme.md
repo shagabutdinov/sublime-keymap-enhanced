@@ -26,37 +26,6 @@ If you would like to install this package separately check "Installing packages
 separately" section of [sublime-enhanced](http://github.com/shagabutdinov/sublime-enhanced)
 package.
 
-### Usage
-
-##### Go to character
-
-```
-# before
-|string
-
-# after goto "g"
-strin|g
-```
-
-##### Select to character
-
-```
-# before
-|string
-
-# after select to "g"
-{strin}g # selection
-```
-
-##### Delete to character
-
-```
-# before
-|string
-
-# after delete to "g"
-|g
-```
 
 ### Commands
 
