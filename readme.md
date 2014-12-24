@@ -8,11 +8,6 @@ Provides sublime-enhanced keyboard bindings for default sublime functions.
 This plugin maps basic cursor moving to characters (not arrows and page up/down,
 home/end). Read "Commands" section to find out all mappings.
 
-This plugin remaps "-" character to "_". If you don't want this remap copy "dash
-to underscore remap" section and fix it in user keymap.
-
-This plugin remaps "." that not preceded by space to "->" for php.
-
 This plugin remaps redo to ctrl+r.
 
 
