@@ -326,7 +326,7 @@
     "keys": ["ctrl+enter"],
     "command": "run_macro_file",
     "args": {
-      "file": "res://Packages/Default/Add Line.sublime-macro"
+      "file": "Packages/KeymapEnhanced/macro/insert_line_forward.sublime-macro"
     },
     "context": [
       {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
@@ -334,11 +334,47 @@
   },
 
   {
+    "keys": ["ctrl+enter"],
+    "command": "run_macro_file",
+    "args": {
+      "file": "Packages/KeymapEnhanced/macro/insert_line_forward_with_indent.sublime-macro"
+    },
+    "context": [
+      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
+      {"key": "line", "operator": "regex_contains", "operand": "[\\{\\[\\(:]\\s*$"},
+    ]
+  },
+
+  {
     "keys": ["shift+enter"],
     "command": "run_macro_file",
     "args": {
-      "file": "res://Packages/Default/Add Line Before.sublime-macro"
+      "file": "Packages/KeymapEnhanced/macro/insert_line_backward.sublime-macro"
     },
+  },
+
+  {
+    "keys": ["shift+enter"],
+    "command": "run_macro_file",
+    "args": {
+      "file": "Packages/KeymapEnhanced/macro/insert_line_backward_with_indent.sublime-macro"
+    },
+    "context": [
+      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
+      {"key": "preceding_128_chars_begin", "operator": "regex_contains", "operand": "[\\{\\[\\(:]\\s*\n.*$"},
+    ]
+  },
+
+  {
+    "keys": ["shift+enter"],
+    "command": "run_macro_file",
+    "args": {
+      "file": "Packages/KeymapEnhanced/macro/insert_line_backward_and_reindent.sublime-macro"
+    },
+    "context": [
+      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
+      {"key": "preceding_128_chars_begin", "operator": "regex_contains", "operand": "\n\n.*$"},
+    ]
   },
 
   // other bindings
@@ -822,43 +858,40 @@
 
   {
     "keys": ["enter"],
-    "command": "run_macro_file",
+    "command": "insert_snippet_enhanced",
     "args": {
-      "file": "Packages/KeymapEnhanced/macro/add_line_in_braces_enhanced.sublime-macro"
+      "contents": "\n\t$0\n",
     },
     "context": [
       {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-      {"key": "selection_empty", "operator": "equal", "operand": true, "match_all": true},
-      {"key": "preceding_text", "operator": "regex_contains", "operand": "\\[$", "match_all": true},
-      {"key": "following_text", "operator": "regex_contains", "operand": "^\\]", "match_all": true}
+      {"key": "preceding_text_begin", "operator": "regex_contains", "operand": "\\[$", "match_all": true},
+      {"key": "following_text_end", "operator": "regex_contains", "operand": "^\\]", "match_all": true}
     ]
   },
 
   {
     "keys": ["enter"],
-    "command": "run_macro_file",
+    "command": "insert_snippet_enhanced",
     "args": {
-      "file": "Packages/KeymapEnhanced/macro/add_line_in_braces_enhanced_without_tab.sublime-macro"
+      "contents": "\n\t$0\n",
     },
     "context": [
       {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-      {"key": "selection_empty", "operator": "equal", "operand": true, "match_all": true},
-      {"key": "preceding_text", "operator": "regex_contains", "operand": "\\{$", "match_all": true},
-      {"key": "following_text", "operator": "regex_contains", "operand": "^\\}", "match_all": true}
+      {"key": "preceding_text_begin", "operator": "regex_contains", "operand": "\\{$", "match_all": true},
+      {"key": "following_text_end", "operator": "regex_contains", "operand": "^\\}", "match_all": true}
     ],
   },
 
   {
     "keys": ["enter"],
-    "command": "run_macro_file",
+    "command": "insert_snippet_enhanced",
     "args": {
-      "file": "Packages/KeymapEnhanced/macro/add_line_in_braces_enhanced_remove_tab.sublime-macro"
+      "contents": "\n\t$0\n",
     },
     "context": [
       {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-      {"key": "selection_empty", "operator": "equal", "operand": true, "match_all": true},
-      {"key": "preceding_text", "operator": "regex_contains", "operand": "\\($", "match_all": true},
-      {"key": "following_text", "operator": "regex_contains", "operand": "^\\)", "match_all": true}
+      {"key": "preceding_text_begin", "operator": "regex_contains", "operand": "\\($", "match_all": true},
+      {"key": "following_text_end", "operator": "regex_contains", "operand": "^\\)", "match_all": true}
     ],
   },
 

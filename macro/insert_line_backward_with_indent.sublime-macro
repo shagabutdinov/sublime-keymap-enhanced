@@ -1,0 +1,24 @@
+[
+  {
+    "command": "move",
+    "args": {
+      "forward": false,
+      "by": "lines",
+    },
+  },
+
+  {
+    "command": "move_to",
+    "args": {
+      "extend": false,
+      "to": "eol"
+    },
+  },
+
+  {
+    "command": "insert_snippet",
+    "args": {
+      "contents": "\n\t"
+    },
+  }
+]
