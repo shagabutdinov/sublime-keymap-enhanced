@@ -16,9 +16,9 @@
   },
 
   {
-    "command": "insert_snippet",
+    "command": "insert",
     "args": {
-      "contents": "\n"
+      "characters": "\n"
     },
   }
 ]

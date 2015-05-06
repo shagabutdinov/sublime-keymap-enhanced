@@ -3,7 +3,7 @@
     "command": "move_to",
     "args": {
       "extend": false,
-      "to": "eol"
+      "to": "bol"
     },
   },
 
@@ -12,5 +12,13 @@
     "args": {
       "characters": "\n"
     },
-  }
+  },
+
+  {
+    "command": "move",
+    "args": {
+      "forward": false,
+      "by": "lines",
+    },
+  },
 ]

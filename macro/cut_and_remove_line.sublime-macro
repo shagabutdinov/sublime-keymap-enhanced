@@ -1,0 +1,42 @@
+[
+  {
+    "command": "cut"
+  },
+
+  {
+    "command": "run_commands",
+    "args": {
+      "commands": [
+        {
+          "command": "run_macro_file",
+          "args": {
+            "file": "Packages/Default/Delete Line.sublime-macro"
+          }
+        },
+
+        {
+          "command": "move",
+          "args": {
+            "by": "lines",
+            "forward": false
+          }
+        }
+
+      ]
+    },
+    "context": [
+      {"key": "preceding_128_chars_begin", "operator": "regex_contains", "operand": "\\n[ \\t]*\\n[ \\t]*$"}
+    ]
+  },
+
+  {
+    "command": "run_macro_file",
+    "args": {
+      "file": "Packages/Default/Delete Line.sublime-macro"
+    },
+    "context": [
+      {"key": "following_128_chars_end", "operator": "regex_contains", "operand": "^[ \\t]*\\n[ \\t]*\\n"}
+    ]
+  }
+
+]

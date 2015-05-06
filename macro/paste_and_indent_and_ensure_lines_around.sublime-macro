@@ -1,0 +1,19 @@
+[
+  {
+    "command": "left_delete",
+    "context": [
+      {"key": "selection_empty", "operator": "equal", "operand": false, "match_all": true}
+    ]
+  },
+
+  {
+    "command": "ensure_lines_around",
+    "context": [
+      {"key": "clipboard", "operator": "regex_contains", "operand": "\n", "match_all": true}
+    ]
+  },
+
+  {
+    "command": "paste_and_indent"
+  }
+]

@@ -35,7 +35,6 @@
     "context": [
       {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
       {"key": "scope_b_left", "operator": "regex_contains", "operand": "source\\.php(?!.*(string|comment))", "match_all": true},
-      {"key": "selection_empty", "operator": "equal", "operand": true, "match_all": true},
       {"key": "preceding_text_b", "operator": "regex_contains", "operand": "(\\w|]|\\))$", "match_all": true},
     ],
   },
@@ -369,6 +368,18 @@
     "keys": ["shift+enter"],
     "command": "run_macro_file",
     "args": {
+      "file": "Packages/KeymapEnhanced/macro/insert_line_backward_with_indent_with_new_line.sublime-macro"
+    },
+    "context": [
+      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
+      {"key": "preceding_128_chars_begin", "operator": "regex_contains", "operand": "^[^\n]*$"},
+    ]
+  },
+
+  {
+    "keys": ["shift+enter"],
+    "command": "run_macro_file",
+    "args": {
       "file": "Packages/KeymapEnhanced/macro/insert_line_backward_and_reindent.sublime-macro"
     },
     "context": [
@@ -441,27 +452,53 @@
     "command": "prev_view"
   },
 
-  // waiting for usecase appear itself
   {
-    "keys": ["ctrl+v"],
-    "command": "paste_and_indent",
+    "keys": ["ctrl+x"],
+    "command": "run_macro_file_with_context",
+    "args": {
+      "file": "Packages/KeymapEnhanced/macro/cut_and_remove_line.sublime-macro",
+    },
     "context": [
-      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-      {"key": "selection_empty", "operator": "equal", "operand": true, "match_all": true}
+      {"key": "scope", "operator": "regex_contains", "operand": "source"},
     ]
   },
 
   {
     "keys": ["ctrl+v"],
-    "command": "run_macro_file",
+    "command": "paste_and_indent",
+  },
+
+  {
+    "keys": ["ctrl+v"],
+    "command": "run_macro_file_with_context",
     "args": {
-      "file": "res://Packages/KeymapEnhanced/macro/paste_and_indent.sublime-macro"
+      "file": "Packages/KeymapEnhanced/macro/paste_and_indent_and_ensure_lines_around.sublime-macro",
     },
     "context": [
-      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-      {"key": "selection_empty", "operator": "equal", "operand": false, "match_all": true}
+      {"key": "scope", "operator": "regex_contains", "operand": "source"},
     ]
   },
+
+  // {
+  //   "keys": ["ctrl+v"],
+  //   "command": "paste_and_indent",
+  //   "context": [
+  //     {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
+  //     {"key": "selection_empty", "operator": "equal", "operand": true, "match_all": true}
+  //   ]
+  // },
+
+  // {
+  //   "keys": ["ctrl+v"],
+  //   "command": "run_macro_file",
+  //   "args": {
+  //     "file": "res://Packages/KeymapEnhanced/macro/paste_and_indent.sublime-macro"
+  //   },
+  //   "context": [
+  //     {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
+  //     {"key": "selection_empty", "operator": "equal", "operand": false, "match_all": true}
+  //   ]
+  // },
 
   {
     "keys": ["ctrl+shift+v"],
