@@ -1,0 +1,22 @@
+[
+  // word (fuzzy)
+
+  {
+    "caption": "KeymapEnhanced: set tab size - 2",
+    "command": "set_setting",
+    "args": {
+      "setting": "tab_size",
+      "value": 2,
+    }
+  },
+
+  {
+    "caption": "KeymapEnhanced: set tab size - 4",
+    "command": "set_setting",
+    "args": {
+      "setting": "tab_size",
+      "value": 4,
+    }
+  },
+
+]

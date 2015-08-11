@@ -24,8 +24,5 @@
 
   {
     "command": "reindent",
-    "args": {
-      "contents": "\n"
-    },
   }
 ]

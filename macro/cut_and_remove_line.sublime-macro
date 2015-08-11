@@ -13,7 +13,6 @@
             "file": "Packages/Default/Delete Line.sublime-macro"
           }
         },
-
         {
           "command": "move",
           "args": {
@@ -21,7 +20,6 @@
             "forward": false
           }
         }
-
       ]
     },
     "context": [
@@ -35,6 +33,7 @@
       "file": "Packages/Default/Delete Line.sublime-macro"
     },
     "context": [
+      {"key": "preceding_text_begin", "operator": "regex_contains", "operand": "^\\s*$"},
       {"key": "following_128_chars_end", "operator": "regex_contains", "operand": "^[ \\t]*\\n[ \\t]*\\n"}
     ]
   }
