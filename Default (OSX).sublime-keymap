@@ -1,46 +1,11 @@
 [
 
-  // dash to underscore remap
-
-  // {
-  //   "keys": ["-"],
-  //   "command": "insert",
-  //   "args": {
-  //     "characters": "_"
-  //   },
-  //   "context": [
-  //     {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-  //   ]
-  // },
-
-  // {
-  //   "keys": ["_"],
-  //   "command": "insert",
-  //   "args": {
-  //     "characters": "-"
-  //   },
-  //   "context": [
-  //     {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-  //   ]
-  // },
-
-  // "." to "->" remap
+  // navigation
 
   {
-    "keys": ["."],
-    "command": "insert",
-    "args": {
-      "characters": "->"
-    },
-    "context": [
-      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-      {"key": "scope_b_left", "operator": "regex_contains", "operand": "source\\.php(?!.*(string|comment))", "match_all": true},
-      {"key": "selection_empty", "operator": "equal", "operand": true, "match_all": true},
-      {"key": "preceding_text_b", "operator": "regex_contains", "operand": "(\\w|]|\\))$", "match_all": true},
-    ],
+    "keys": ["alt+shift+u"],
+    "command": "find_all_under",
   },
-
-  // navigation
 
   {
     "keys": ["alt+j"],
@@ -326,7 +291,7 @@
     "keys": ["ctrl+enter"],
     "command": "run_macro_file",
     "args": {
-      "file": "res://Packages/Default/Add Line.sublime-macro"
+      "file": "Packages/KeymapEnhanced/macro/insert_line_forward.sublime-macro"
     },
     "context": [
       {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
@@ -334,11 +299,59 @@
   },
 
   {
+    "keys": ["ctrl+enter"],
+    "command": "run_macro_file",
+    "args": {
+      "file": "Packages/KeymapEnhanced/macro/insert_line_forward_with_indent.sublime-macro"
+    },
+    "context": [
+      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
+      {"key": "line", "operator": "regex_contains", "operand": "[\\{\\[\\(:]\\s*$"},
+    ]
+  },
+
+  {
     "keys": ["shift+enter"],
     "command": "run_macro_file",
     "args": {
-      "file": "res://Packages/Default/Add Line Before.sublime-macro"
+      "file": "Packages/KeymapEnhanced/macro/insert_line_backward.sublime-macro"
     },
+  },
+
+  {
+    "keys": ["shift+enter"],
+    "command": "run_macro_file",
+    "args": {
+      "file": "Packages/KeymapEnhanced/macro/insert_line_backward_with_indent.sublime-macro"
+    },
+    "context": [
+      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
+      {"key": "preceding_128_chars_begin", "operator": "regex_contains", "operand": "[\\{\\[\\(:]\\s*\n.*$"},
+    ]
+  },
+
+  {
+    "keys": ["shift+enter"],
+    "command": "run_macro_file",
+    "args": {
+      "file": "Packages/KeymapEnhanced/macro/insert_line_backward_with_indent_with_new_line.sublime-macro"
+    },
+    "context": [
+      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
+      {"key": "preceding_128_chars_begin", "operator": "regex_contains", "operand": "^[^\n]*$"},
+    ]
+  },
+
+  {
+    "keys": ["shift+enter"],
+    "command": "run_macro_file",
+    "args": {
+      "file": "Packages/KeymapEnhanced/macro/insert_line_backward_and_reindent.sublime-macro"
+    },
+    "context": [
+      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
+      {"key": "preceding_128_chars_begin", "operator": "regex_contains", "operand": "\n\n.*$"},
+    ]
   },
 
   // other bindings
@@ -405,27 +418,54 @@
     "command": "prev_view"
   },
 
-  // waiting for usecase appear itself
   {
-    "keys": ["ctrl+v"],
-    "command": "paste_and_indent",
+    "keys": ["ctrl+x"],
+    "command": "run_macro_file_with_context",
+    "args": {
+      "file": "Packages/KeymapEnhanced/macro/cut_and_remove_line.sublime-macro",
+    },
     "context": [
-      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-      {"key": "selection_empty", "operator": "equal", "operand": true, "match_all": true}
+      {"key": "scope", "operator": "regex_contains", "operand": "source"},
     ]
   },
 
   {
     "keys": ["ctrl+v"],
-    "command": "run_macro_file",
+    "command": "paste_and_indent",
+  },
+
+  {
+    "keys": ["ctrl+v"],
+    "command": "run_macro_file_with_context",
     "args": {
-      "file": "res://Packages/KeymapEnhanced/macro/paste_and_indent.sublime-macro"
+      "file": "Packages/KeymapEnhanced/macro/paste_and_indent_and_ensure_lines_around.sublime-macro",
     },
     "context": [
-      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-      {"key": "selection_empty", "operator": "equal", "operand": false, "match_all": true}
+      {"key": "scope", "operator": "regex_contains", "operand": "source(?!.*string)"},
+      {"key": "num_selections", "operator": "equal", "operand": 1},
     ]
   },
+
+  // {
+  //   "keys": ["ctrl+v"],
+  //   "command": "paste_and_indent",
+  //   "context": [
+  //     {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
+  //     {"key": "selection_empty", "operator": "equal", "operand": true, "match_all": true}
+  //   ]
+  // },
+
+  // {
+  //   "keys": ["ctrl+v"],
+  //   "command": "run_macro_file",
+  //   "args": {
+  //     "file": "res://Packages/KeymapEnhanced/macro/paste_and_indent.sublime-macro"
+  //   },
+  //   "context": [
+  //     {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
+  //     {"key": "selection_empty", "operator": "equal", "operand": false, "match_all": true}
+  //   ]
+  // },
 
   {
     "keys": ["ctrl+shift+v"],
@@ -442,7 +482,7 @@
     "command": "redo",
     "context": [
       {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-      {"key": "overlay_visible", "operator": "equal", "operand": false}
+      {"key": "overlay_visible", "operator": "equal", "operand": false},
     ],
   },
 
@@ -457,7 +497,7 @@
   },
 
   {
-    "keys": ["f2"],
+    "keys": ["ctrl+n", "ctrl+s"],
     "command": "show_overlay",
     "args": {
       "overlay": "goto",
@@ -465,6 +505,7 @@
     },
     "context": [
       {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
+      {"key": "overlay_visible", "operator": "equal", "operand": false},
     ]
   },
 
@@ -822,30 +863,15 @@
 
   {
     "keys": ["enter"],
-    "command": "run_macro_file",
+    "command": "insert_snippet_enhanced",
     "args": {
-      "file": "Packages/KeymapEnhanced/macro/add_line_in_braces_enhanced.sublime-macro"
+      "contents": "\n\t$0\n",
     },
     "context": [
       {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-      {"key": "selection_empty", "operator": "equal", "operand": true, "match_all": true},
-      {"key": "preceding_text", "operator": "regex_contains", "operand": "\\[$", "match_all": true},
-      {"key": "following_text", "operator": "regex_contains", "operand": "^\\]", "match_all": true}
+      {"key": "preceding_text_begin", "operator": "regex_contains", "operand": "[\\[\\{\\(]['\"]?$", "match_all": true},
+      {"key": "following_text_end", "operator": "regex_contains", "operand": "^['\"]?[\\]\\}\\)]", "match_all": true}
     ]
-  },
-
-  {
-    "keys": ["enter"],
-    "command": "run_macro_file",
-    "args": {
-      "file": "Packages/KeymapEnhanced/macro/add_line_in_braces_enhanced_without_tab.sublime-macro"
-    },
-    "context": [
-      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-      {"key": "selection_empty", "operator": "equal", "operand": true, "match_all": true},
-      {"key": "preceding_text", "operator": "regex_contains", "operand": "\\{$", "match_all": true},
-      {"key": "following_text", "operator": "regex_contains", "operand": "^\\}", "match_all": true}
-    ],
   },
 
 ]

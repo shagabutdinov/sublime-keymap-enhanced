@@ -1,45 +1,11 @@
 [
 
-  // dash to underscore remap
-
-  // {
-  //   "keys": ["-"],
-  //   "command": "insert",
-  //   "args": {
-  //     "characters": "_"
-  //   },
-  //   "context": [
-  //     {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-  //   ]
-  // },
-
-  // {
-  //   "keys": ["_"],
-  //   "command": "insert",
-  //   "args": {
-  //     "characters": "-"
-  //   },
-  //   "context": [
-  //     {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-  //   ]
-  // },
-
-  // "." to "->" remap
-
-  // {
-  //   "keys": ["."],
-  //   "command": "insert",
-  //   "args": {
-  //     "characters": "->"
-  //   },
-  //   "context": [
-  //     {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-  //     {"key": "scope_b_left", "operator": "regex_contains", "operand": "source\\.php(?!.*(string|comment))", "match_all": true},
-  //     {"key": "preceding_text_b", "operator": "regex_contains", "operand": "(\\w|]|\\))$", "match_all": true},
-  //   ],
-  // },
-
   // navigation
+
+  {
+    "keys": ["alt+shift+u"],
+    "command": "find_all_under",
+  },
 
   {
     "keys": ["alt+j"],
