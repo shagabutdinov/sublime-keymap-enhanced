@@ -434,17 +434,17 @@
     "command": "paste_and_indent",
   },
 
-  {
-    "keys": ["ctrl+v"],
-    "command": "run_macro_file_with_context",
-    "args": {
-      "file": "Packages/KeymapEnhanced/macro/paste_and_indent_and_ensure_lines_around.sublime-macro",
-    },
-    "context": [
-      {"key": "scope", "operator": "regex_contains", "operand": "source(?!.*string)"},
-      {"key": "num_selections", "operator": "equal", "operand": 1},
-    ]
-  },
+  // {
+  //   "keys": ["ctrl+v"],
+  //   "command": "run_macro_file_with_context",
+  //   "args": {
+  //     "file": "Packages/KeymapEnhanced/macro/paste_and_indent_and_ensure_lines_around.sublime-macro",
+  //   },
+  //   "context": [
+  //     {"key": "scope", "operator": "regex_contains", "operand": "source(?!.*string)"},
+  //     {"key": "num_selections", "operator": "equal", "operand": 1},
+  //   ]
+  // },
 
   // {
   //   "keys": ["ctrl+v"],
@@ -536,14 +536,14 @@
     ]
   },
 
-  {
-    "keys": ["ctrl+w"],
-    "command": "split_selection_into_lines",
-    "context": [
-      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-      {"key": "selection_empty", "operator": "equal", "operand": false, "match_all": true}
-    ],
-  },
+  // {
+  //   "keys": ["ctrl+w"],
+  //   "command": "split_selection_into_lines",
+  //   "context": [
+  //     {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
+  //     {"key": "selection_empty", "operator": "equal", "operand": false, "match_all": true}
+  //   ],
+  // },
 
   {
     "keys": ["ctrl+e"],
@@ -808,6 +808,11 @@
   },
 
   {
+    "keys": ["ctrl+u", "n"],
+    "command": "new_window_for_project"
+  },
+
+  {
     "keys": ["ctrl+u", "\\"],
     "command": "prompt_open_folder"
   },
@@ -850,6 +855,11 @@
   // close file
 
   {
+    "keys": ["ctrl+w"],
+    "command": "close"
+  },
+
+  {
     "keys": ["ctrl+u", "ctrl+l"],
     "command": "close"
   },
@@ -872,6 +882,25 @@
       {"key": "preceding_text_begin", "operator": "regex_contains", "operand": "[\\[\\{\\(]['\"]?$", "match_all": true},
       {"key": "following_text_end", "operator": "regex_contains", "operand": "^['\"]?[\\]\\}\\)]", "match_all": true}
     ]
+  },
+
+  {
+    "keys": ["ctrl+alt+m"],
+    "command": "wrap_lines",
+    "args": {
+      "width": 80,
+    },
+  },
+
+  {
+    "keys": ["alt+u"],
+    "command": "find_all_under",
+  },
+
+  {
+    "keys": ["alt+shift+u"],
+    "command": "toggle_setting",
+    "args": {"setting": "word_wrap"},
   },
 
 ]

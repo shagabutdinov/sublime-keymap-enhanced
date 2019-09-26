@@ -1,6 +1,6 @@
 [
   {
-    "command": "cut"
+    "command": "cut",
   },
 
   {
@@ -10,20 +10,21 @@
         {
           "command": "run_macro_file",
           "args": {
-            "file": "Packages/Default/Delete Line.sublime-macro"
-          }
+            "file": "Packages/Default/Delete Line.sublime-macro",
+          },
         },
         {
           "command": "move",
           "args": {
             "by": "lines",
-            "forward": false
-          }
-        }
+            "forward": false,
+          },
+        },
       ]
     },
     "context": [
-      {"key": "preceding_128_chars_begin", "operator": "regex_contains", "operand": "\\n[ \\t]*\\n[ \\t]*$"}
+      {"key": "preceding_128_chars_begin", "operator": "regex_contains", "operand": "\\n[ \\t]*\\n[ \\t]*$"},
+      {"key": "following_text_end", "operator": "regex_contains", "operand": "^\\s*$"},
     ]
   },
 
@@ -34,7 +35,7 @@
     },
     "context": [
       {"key": "preceding_text_begin", "operator": "regex_contains", "operand": "^\\s*$"},
-      {"key": "following_128_chars_end", "operator": "regex_contains", "operand": "^[ \\t]*\\n[ \\t]*\\n"}
+      {"key": "following_128_chars_end", "operator": "regex_contains", "operand": "^[ \\t]*\\n[ \\t]*\\n"},
     ]
   }
 

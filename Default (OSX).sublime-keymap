@@ -434,17 +434,17 @@
     "command": "paste_and_indent",
   },
 
-  {
-    "keys": ["ctrl+v"],
-    "command": "run_macro_file_with_context",
-    "args": {
-      "file": "Packages/KeymapEnhanced/macro/paste_and_indent_and_ensure_lines_around.sublime-macro",
-    },
-    "context": [
-      {"key": "scope", "operator": "regex_contains", "operand": "source(?!.*string)"},
-      {"key": "num_selections", "operator": "equal", "operand": 1},
-    ]
-  },
+  // {
+  //   "keys": ["ctrl+v"],
+  //   "command": "run_macro_file_with_context",
+  //   "args": {
+  //     "file": "Packages/KeymapEnhanced/macro/paste_and_indent_and_ensure_lines_around.sublime-macro",
+  //   },
+  //   "context": [
+  //     {"key": "scope", "operator": "regex_contains", "operand": "source(?!.*string)"},
+  //     {"key": "num_selections", "operator": "equal", "operand": 1},
+  //   ]
+  // },
 
   // {
   //   "keys": ["ctrl+v"],
