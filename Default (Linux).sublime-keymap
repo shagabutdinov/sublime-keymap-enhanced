@@ -536,14 +536,14 @@
     ]
   },
 
-  // {
-  //   "keys": ["ctrl+w"],
-  //   "command": "split_selection_into_lines",
-  //   "context": [
-  //     {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
-  //     {"key": "selection_empty", "operator": "equal", "operand": false, "match_all": true}
-  //   ],
-  // },
+  {
+    "keys": ["ctrl+w"],
+    "command": "split_selection_into_lines",
+    "context": [
+      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
+      {"key": "selection_empty", "operator": "equal", "operand": false, "match_all": true}
+    ],
+  },
 
   {
     "keys": ["ctrl+e"],
@@ -849,23 +849,27 @@
 
   {
     "keys": ["ctrl+m", "ctrl+w"],
-    "command": "wrap_lines"
+    "command": "wrap_lines",
   },
 
   // close file
 
   {
     "keys": ["ctrl+w"],
+    "command": "close",
+    "context": [
+      {"key": "setting.sublime_enhanced_keybindings", "operator": "equal", "operand": true},
+      {"key": "selection_empty", "operator": "equal", "operand": true, "match_all": true}
+    ],
+  },
+
+  {
+    "keys": ["ctrl+u", "ctrl+k"],
     "command": "close"
   },
 
   {
-    "keys": ["ctrl+u", "ctrl+l"],
-    "command": "close"
-  },
-
-  {
-    "keys": ["ctrl+u", ";"],
+    "keys": ["ctrl+u", "l"],
     "command": "close_all"
   },
 
